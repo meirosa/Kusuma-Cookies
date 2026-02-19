@@ -18,7 +18,6 @@ export default function ProductCard({ product }) {
       <div className="p-5">
         <h2 className="text-lg font-semibold">{product.name}</h2>
 
-        {/* Size Selector */}
         {product.sizes.length > 1 && (
           <select
             className="mt-3 w-full border rounded-lg p-2"
@@ -34,12 +33,10 @@ export default function ProductCard({ product }) {
           </select>
         )}
 
-        {/* Harga */}
         <p className="text-orange-600 text-xl font-bold mt-3">
           Rp {selectedSize.price.toLocaleString("id-ID")}
         </p>
 
-        {/* WA Button */}
         <a href={waLink} target="_blank">
           <button className="mt-4 w-full bg-green-500 text-white py-2 rounded-xl hover:bg-green-600 transition">
             Pesan Sekarang
