@@ -13,9 +13,7 @@ export default function Home() {
     {
       name: "Lidah Kucing",
       image: "/lidahkucing.jpeg",
-      sizes: [
-        { label: "800ml", price: 35000 },
-      ],
+      sizes: [{ label: "800ml", price: 35000 }],
     },
     {
       name: "Nastar",
@@ -49,6 +47,22 @@ export default function Home() {
         { label: "800ml", price: 40000 },
       ],
     },
+    {
+      name: "Janit",
+      image: "/janit.jpeg",
+      sizes: [
+        { label: "400ml", price: 20000 },
+        { label: "800ml", price: 40000 },
+      ],
+    },
+    {
+      name: "Thumbrinth Cookies",
+      image: "/thumbrinthcookies.jpeg",
+      sizes: [
+        { label: "400ml", price: 23000 },
+        { label: "800ml", price: 45000 },
+      ],
+    },
   ];
 
   const sliderImages = [
@@ -58,6 +72,8 @@ export default function Home() {
     "/nastar.jpeg",
     "/putrisalju.jpeg",
     "/lidahkucing.jpeg",
+    "/janit.jpeg",
+    "/thumbrinthcookies.jpeg",
   ];
 
   return (
