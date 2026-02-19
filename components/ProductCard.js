@@ -3,10 +3,10 @@ import { useState } from "react";
 export default function ProductCard({ product }) {
   const phoneNumber = "6281333906323";
 
-  // state untuk ukuran yang dipilih
+  // state ukuran yang dipilih
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
 
-  // pesan WA otomatis
+  // link WhatsApp otomatis
   const message = `Halo kak, saya mau pesan ${product.name} ukuran ${selectedSize.label} - Rp ${selectedSize.price.toLocaleString(
     "id-ID",
   )}`;
@@ -28,26 +28,21 @@ export default function ProductCard({ product }) {
         {product.name}
       </h2>
 
-      {/* Dropdown Ukuran */}
-      <div className="mt-3 min-h-[48px]">
-        <select
-          className="w-full border rounded-lg p-2 bg-white text-black appearance-none disabled:bg-gray-100 disabled:text-gray-500"
-          disabled={product.sizes.length === 1}
-          onChange={(e) =>
-            setSelectedSize(product.sizes[e.target.selectedIndex])
-          }
-          value={`${selectedSize.label} - Rp ${selectedSize.price}`} // set selected value
-        >
-          {product.sizes.map((size, index) => (
-            <option
-              key={index}
-              className="text-black"
-              value={`${size.label} - Rp ${size.price}`} // memastikan selected value sesuai
-            >
-              {size.label} - Rp {size.price.toLocaleString("id-ID")}
-            </option>
-          ))}
-        </select>
+      {/* Pilihan Ukuran (button group) */}
+      <div className="flex gap-2 mt-3 flex-wrap">
+        {product.sizes.map((size, idx) => (
+          <button
+            key={idx}
+            onClick={() => setSelectedSize(size)}
+            className={`px-3 py-1 rounded-full border transition-colors font-medium ${
+              selectedSize.label === size.label
+                ? "bg-[#7a5c2e] text-white border-[#7a5c2e]" // aktif
+                : "bg-white text-[#6b5b3e] border-[#e5d9c6]" // default
+            }`}
+          >
+            {size.label} - Rp {size.price.toLocaleString("id-ID")}
+          </button>
+        ))}
       </div>
 
       {/* Harga */}
