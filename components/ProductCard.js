@@ -3,14 +3,20 @@ import { useState } from "react";
 export default function ProductCard({ product }) {
   const phoneNumber = "6281333906323";
 
+  // state untuk ukuran yang dipilih
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
 
-  const message = `Halo kak, saya mau pesan ${product.name} ukuran ${selectedSize.label} - Rp ${selectedSize.price}`;
-  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  // pesan WA otomatis
+  const message = `Halo kak, saya mau pesan ${product.name} ukuran ${selectedSize.label} - Rp ${selectedSize.price.toLocaleString(
+    "id-ID",
+  )}`;
+  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    message,
+  )}`;
 
   return (
     <div className="p-5 flex flex-col h-full">
-      {/* Gambar */}
+      {/* Gambar Produk */}
       <img
         src={product.image}
         alt={product.name}
@@ -22,17 +28,22 @@ export default function ProductCard({ product }) {
         {product.name}
       </h2>
 
-      {/* Dropdown Ukuran (selalu ada) */}
+      {/* Dropdown Ukuran */}
       <div className="mt-3 min-h-[48px]">
         <select
-          className="w-full border rounded-lg p-2 bg-white disabled:bg-gray-100 disabled:text-gray-500"
+          className="w-full border rounded-lg p-2 bg-white text-black appearance-none disabled:bg-gray-100 disabled:text-gray-500"
           disabled={product.sizes.length === 1}
           onChange={(e) =>
             setSelectedSize(product.sizes[e.target.selectedIndex])
           }
+          value={`${selectedSize.label} - Rp ${selectedSize.price}`} // set selected value
         >
           {product.sizes.map((size, index) => (
-            <option key={index}>
+            <option
+              key={index}
+              className="text-black"
+              value={`${size.label} - Rp ${size.price}`} // memastikan selected value sesuai
+            >
               {size.label} - Rp {size.price.toLocaleString("id-ID")}
             </option>
           ))}
@@ -44,7 +55,7 @@ export default function ProductCard({ product }) {
         Rp {selectedSize.price.toLocaleString("id-ID")}
       </p>
 
-      {/* Tombol selalu di bawah */}
+      {/* Tombol Pesan WhatsApp */}
       <div className="mt-auto">
         <a href={waLink} target="_blank" rel="noopener noreferrer">
           <button className="mt-4 w-full bg-green-500 text-white py-2 rounded-xl hover:bg-green-600 transition">
