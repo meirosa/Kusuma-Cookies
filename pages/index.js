@@ -63,6 +63,14 @@ export default function Home() {
         { label: "800ml", price: 45000 },
       ],
     },
+    {
+      name: "Kastengel",
+      image: "/kastengel.jpeg",
+      sizes: [
+        { label: "400ml", price: 25000 },
+        { label: "800ml", price: 45000 },
+      ],
+    },
   ];
 
   const sliderImages = [
@@ -74,6 +82,7 @@ export default function Home() {
     "/lidahkucing.jpeg",
     "/janit.jpeg",
     "/thumbrinthcookies.jpeg",
+    "/kastengel.jpeg",
   ];
 
   return (
