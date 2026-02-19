@@ -14,20 +14,19 @@ export default function Home() {
       name: "Lidah Kucing",
       image: "/lidahkucing.jpeg",
       sizes: [
-        { label: "400ml", price: 20000 },
-        { label: "800ml", price: 40000 },
+        { label: "800ml", price: 35000 },
       ],
     },
     {
       name: "Nastar",
       image: "/nastar.jpeg",
       sizes: [
-        { label: "400ml", price: 20000 },
-        { label: "800ml", price: 40000 },
+        { label: "400ml", price: 23000 },
+        { label: "800ml", price: 45000 },
       ],
     },
     {
-      name: "Putri Salju",
+      name: "Salju Nyesss",
       image: "/putrisalju.jpeg",
       sizes: [
         { label: "400ml", price: 20000 },
@@ -38,8 +37,8 @@ export default function Home() {
       name: "Sagu Keju Pandan",
       image: "/sagukejupandan.jpeg",
       sizes: [
-        { label: "400ml", price: 20000 },
-        { label: "800ml", price: 40000 },
+        { label: "400ml", price: 23000 },
+        { label: "800ml", price: 45000 },
       ],
     },
     {
